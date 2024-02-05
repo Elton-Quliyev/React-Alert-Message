@@ -1,20 +1,12 @@
 import "./style.css"
 
-
-const AlertMessage = ({message, color , foto}) =>{
-
-
-    return(
-
-        <div className={color}>
-                 
-            Emeliyyatin veziyyeti : {message}
-
-            <img src={foto}></img>
-                 
-        </div>    
-
-    )
+const AlertMessage = ({ message, clas, foto }) => {
+  return (
+    <div className={clas}>
+      Emeliyyatin veziyyeti: {message}
+      <img src={foto} alt={clas} />
+    </div>
+  );
 }
 
-export default AlertMessage
+export default AlertMessage;

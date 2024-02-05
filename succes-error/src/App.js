@@ -1,35 +1,40 @@
 import './App.css';
-import AlertMessage from './components/AlertMessage';
+
+import AlertMessage from './components/AlertMessage'; // Importing AlertMessage component
 import Error from "./assets/image/error.jpeg"
 import Succes from "./assets/image/succes.jpeg"
 import Info from "./assets/image/info.jpeg"
 
 function App() {
+  const alertMessages = [
+    {
+      alert: "success",
+      message: "Ugurlu emeliyyat",
+      clas:"succes"
+    },
+    {
+      alert: "error",
+      message: "Emeliyyat ugursuz oldu",
+      clas:"error"
+    },
+    {
+      alert: "info",
+      message: "Emeliyyat davam edir...",
+      clas:"info"
+    }
+  ];
+
   return (
     <>
-
-      <AlertMessage
-        message="Emeliyyat icra olunmaga davam edir"
-        color="info"
-        foto={Info}
+      {alertMessages.map((alertMessage, index) => (
+        <AlertMessage
+          key={index}
+          message={alertMessage.message}
+          clas={alertMessage.clas}
+          foto={alertMessage.alert === "success" ? Succes : alertMessage.alert === "error" ? Error : Info}
         />
-      <AlertMessage
-        message="Emeliyyat icra olunmadi"
-        color="error"
-        foto={Error}
-
-        
-        />
-      <AlertMessage
-        message="Ugurlu emeliyyat"
-        color="succes"
-        foto={Succes}
-
-      />
-     
-
+      ))}
     </>
-    
   );
 }
 
